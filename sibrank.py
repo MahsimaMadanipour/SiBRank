@@ -19,6 +19,12 @@ def SibRank(users_set, items_set, preference_database, u_target, k, n, damping_a
     
     def inference_ranking():
         pass
+        """
+        To infer a total ranking, SibRank first estimates the preference matrix of the target user based on his neighbors, 
+        then it infers a total ranking by aggregating the elements of the estimated preference matrix. To do this, 
+        SibRank exploits exponential ranking of items in the signed graph with adjacency matrix of A. Exponential ranking calculates the ranking of item
+        through PageRank calculation of a weighted graph with adjacency matrix of M. Finally, SibRank recommends the Top N items that have the highest ranks.
+	    """
     
     sibernet_graph = sibrenet.SiBreNet(users_set, items_set, preference_database)
     s = srank.SRank(sibernet_graph, u_target, damping_alpha)
